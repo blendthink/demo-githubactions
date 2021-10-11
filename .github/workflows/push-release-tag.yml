@@ -21,6 +21,6 @@ jobs:
           BRANCH_NAME: ${{github.head_ref}}
         run: |
           # develop/1.0.0 → release-1.0.0
-          TAG_NAME="${BRANCH_NAME/develop\//release-}" >
+          TAG_NAME="${BRANCH_NAME/develop\//release-}"
           git tag $TAG_NAME
           git push origin $TAG_NAME
