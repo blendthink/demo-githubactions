@@ -15,7 +15,7 @@ jobs:
       - name: checkout
         uses: actions/checkout@v2
         with:
-          - ref: 'main'
+          ref: 'main'
       - name: push tag
         env:
           BRANCH_NAME: ${{github.head_ref}}
