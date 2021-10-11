@@ -12,10 +12,11 @@ jobs:
     if: contains(github.head_ref, 'develop/') && github.event.pull_request.merged == true
     runs-on: ubuntu-20.04
     steps:
+      - name: checkout
+        uses: actions/checkout@v2
       - name: push tag
         env:
           BRANCH_NAME: ${{github.head_ref}}
-        uses: actions/checkout@v2
         run: |
           # develop/1.0.0 → release-1.0.0
           echo "${BRANCH_NAME/develop\//release-}" > TAG_NAME
