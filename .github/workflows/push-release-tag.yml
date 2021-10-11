@@ -13,10 +13,10 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - name: push tag
-      - env:
+        env:
           BRANCH_NAME: ${{github.head_ref}}
-      - uses: actions/checkout@v2
-      - run: |
+        uses: actions/checkout@v2
+        run: |
           # develop/1.0.0 → release-1.0.0
           echo "${BRANCH_NAME/develop\//release-}" > TAG_NAME
           git tag $(cat TAG_NAME)
